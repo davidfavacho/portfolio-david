@@ -1,0 +1,300 @@
+
+/* ============================================
+   DAVID. | RESPONSIVIDADE
+   Tablets, celulares e telas menores
+   ============================================ */
+
+
+/* ============================================
+   1. TABLETS E TELAS INTERMEDIÁRIAS
+   ============================================ */
+
+@media (max-width: 850px) {
+
+    /* Apresentação */
+
+    .hero {
+        gap: 30px;
+    }
+
+    .hero-content {
+        min-width: 0;
+    }
+
+    .hero-image {
+        max-width: 240px;
+    }
+
+    /* Habilidades */
+
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* Projetos */
+
+    .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ============================================
+   2. CELULARES
+   ============================================ */
+
+@media (max-width: 650px) {
+
+    /* ----------------------------------------
+       CABEÇALHO
+    ---------------------------------------- */
+
+    .navbar {
+        position: relative;
+        z-index: 1000;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        flex-wrap: nowrap;
+        padding-block: 15px;
+    }
+
+    /* Botão do menu */
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-left: auto;
+        z-index: 1002;
+
+        cursor: pointer;
+    }
+
+
+    /* ----------------------------------------
+       MENU SUSPENSO FLUTUANTE
+    ---------------------------------------- */
+
+    .nav-menu {
+        display: none;
+
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 0;
+
+        width: min(280px, calc(100vw - 32px));
+
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+
+        padding: 12px;
+
+        background: var(--surface, #1b2a40);
+
+        border: 1px solid rgba(72, 177, 191, 0.2);
+        border-radius: 16px;
+
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.30);
+
+        z-index: 1001;
+    }
+
+    /* Menu aberto */
+
+    .nav-menu.active {
+        display: flex;
+        animation: menu-entrada 0.2s ease;
+    }
+
+    /* Links do menu */
+
+    .nav-menu a {
+        display: block;
+
+        padding: 13px 15px;
+
+        color: var(--text, #f1f5f9);
+        text-decoration: none;
+
+        border-radius: 9px;
+
+        transition:
+            background 0.2s ease,
+            color 0.2s ease;
+    }
+
+    .nav-menu a:hover {
+        background: rgba(6, 190, 182, 0.12);
+        color: var(--primary, #06beb6);
+    }
+
+    .nav-menu a:focus-visible {
+        outline: 2px solid var(--secondary, #48b1bf);
+        outline-offset: 2px;
+    }
+
+
+    /* ----------------------------------------
+       BOTÃO DE TEMA
+    ---------------------------------------- */
+
+    .theme-toggle {
+        position: absolute;
+
+        top: 50%;
+        right: 75px;
+
+        transform: translateY(-50%);
+
+        margin: 0;
+        order: initial;
+    }
+
+
+    /* ----------------------------------------
+       APRESENTAÇÃO PRINCIPAL
+    ---------------------------------------- */
+
+    .hero {
+        flex-direction: column-reverse;
+        align-items: center;
+
+        gap: 30px;
+
+        padding-block: 55px;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .hero-image {
+        width: min(260px, 80%);
+        max-width: 100%;
+
+        flex: none;
+    }
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        gap: 12px;
+    }
+
+
+    /* ----------------------------------------
+       HABILIDADES E PROJETOS
+    ---------------------------------------- */
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+
+    /* ----------------------------------------
+       ESPAÇAMENTO DAS SEÇÕES
+    ---------------------------------------- */
+
+    .section-padding {
+        padding-block: 65px;
+    }
+
+
+    /* ----------------------------------------
+       BOTÕES E LINKS
+    ---------------------------------------- */
+
+    .hero-buttons a,
+    .hero-buttons button {
+        max-width: 100%;
+    }
+
+}
+
+
+/* ============================================
+   3. CELULARES PEQUENOS
+   ============================================ */
+
+@media (max-width: 380px) {
+
+    /* Apresentação */
+
+    .hero {
+        padding-block: 40px;
+        gap: 25px;
+    }
+
+    .hero-image {
+        width: min(220px, 75%);
+    }
+
+    /* Botões */
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons a,
+    .hero-buttons button {
+        width: 100%;
+    }
+
+    /* Espaçamento */
+
+    .section-padding {
+        padding-block: 45px;
+    }
+
+    /* Menu */
+
+    .nav-menu {
+        width: min(260px, calc(100vw - 32px));
+    }
+
+}
+
+
+/* ============================================
+   4. ANIMAÇÃO DO MENU
+   ============================================ */
+
+@keyframes menu-entrada {
+
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ============================================
+   5. ACESSIBILIDADE E MOVIMENTO REDUZIDO
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .nav-menu.active {
+        animation: none;
+    }
+
+}

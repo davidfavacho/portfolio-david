@@ -1,0 +1,83 @@
+
+
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 9999;
+
+    padding: 12px 18px;
+
+    background-color: var(--primary, #06beb6);
+    color: #10202c;
+
+    font-weight: 700;
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    transform: translateY(-160%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+/* Destaque de navegação por teclado */
+
+:focus-visible {
+    outline: 3px solid var(--secondary, #48b1bf);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Evita destaque visual em cliques de mouse,
+   preservando o foco de teclado */
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Áreas de interação */
+
+button,
+a,
+input,
+select,
+textarea {
+    scroll-margin-top: 100px;
+}
+
+/* Imagens e elementos não devem ultrapassar
+   os limites do conteúdo */
+
+img,
+svg,
+video {
+    max-width: 100%;
+}
+
+/* Respeita a preferência por menos movimento */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Melhora a experiência em dispositivos touch */
+
+@media (pointer: coarse) {
+    button,
+    a,
+    input,
+    select {
+        min-height: 44px;
+    }
+}
