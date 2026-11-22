@@ -298,3 +298,189 @@
     }
 
 }
+
+/* ============================================
+   DAVID. | CORREÇÃO RESPONSIVA — SOBRE MIM
+   Layout para celulares e tablets
+============================================ */
+
+/* Ajustes dos títulos conforme o HTML */
+
+.about-header h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin: 16px 0;
+    letter-spacing: -1.2px;
+}
+
+.about-header h1 span {
+    color: var(--primary);
+}
+
+.about-main h2 {
+    max-width: 650px;
+    font-size: clamp(1.9rem, 3.5vw, 2.7rem);
+    line-height: 1.25;
+    letter-spacing: -1px;
+    margin: 17px 0 28px;
+}
+
+.about-main h2 span {
+    color: var(--primary);
+}
+
+.profile-identification h2 {
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+/* Corrige informações acadêmicas */
+
+.profile-academic dd {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.profile-academic dd span {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+/* TABLETS */
+
+@media (max-width: 850px) {
+
+    .about-layout {
+        grid-template-columns:
+            minmax(0, 0.9fr)
+            minmax(0, 1.1fr);
+
+        gap: 30px;
+    }
+
+    .about-profile,
+    .about-main {
+        min-width: 0;
+    }
+
+}
+
+/* CELULARES */
+
+@media (max-width: 650px) {
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: clip;
+    }
+
+    .about {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .about-header {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 35px;
+    }
+
+    .about-header h1 {
+        font-size: clamp(2rem, 8vw, 2.7rem);
+        line-height: 1.2;
+    }
+
+    /* Uma coluna em vez de duas */
+
+    .about-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+        gap: 35px;
+    }
+
+    .about-profile,
+    .about-main {
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* Apresentação antes do cartão de perfil */
+
+    .about-main {
+        order: 1;
+        padding-top: 0;
+    }
+
+    .about-profile {
+        order: 2;
+        padding: 14px;
+    }
+
+    .about-main h2 {
+        font-size: clamp(1.8rem, 7vw, 2.4rem);
+        line-height: 1.25;
+        margin: 15px 0 22px;
+    }
+
+    .about-main > p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        overflow-wrap: break-word;
+    }
+
+    /* Foto */
+
+    .about-image {
+        height: auto;
+        aspect-ratio: 4 / 5;
+    }
+
+    .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .profile-identification h2 {
+        font-size: 1.7rem;
+    }
+
+    /* Tecnologias */
+
+    .specialty-list {
+        gap: 8px;
+    }
+
+    .specialty-list span {
+        font-size: 0.75rem;
+    }
+
+}
+
+/* CELULARES PEQUENOS */
+
+@media (max-width: 380px) {
+
+    .about {
+        padding-top: 45px;
+        padding-bottom: 45px;
+    }
+
+    .about-layout {
+        gap: 28px;
+    }
+
+    .about-profile {
+        padding: 11px;
+    }
+
+    .about-main h2 {
+        font-size: 1.75rem;
+    }
+
+}
